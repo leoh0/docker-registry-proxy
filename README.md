@@ -1,6 +1,6 @@
-# Docker Registry 2.0 Proxy
+# Docker Registry 2.0 Proxy with no auth version
 
-Use this image to run Docker Registry 2.0 behind nginx proxy, with SSL and basic_auth enabled.
+Use this image to run Docker Registry 2.0 behind nginx proxy, with SSL enabled.
 
 [Tutorial](http://www.container-solutions.com/2015/04/running-secured-docker-registry-2-0/)
 
@@ -24,7 +24,6 @@ docker run -p 443:443 \
 	-e REGISTRY_PORT="5000" \
 	-e SERVER_NAME="localhost" \
 	--link docker-registry:docker-registry \
-	-v $(pwd)/.htpasswd:/etc/nginx/.htpasswd:ro \
 	-v $(pwd)/certs:/etc/nginx/ssl:ro \
 	containersol/docker-registry-proxy
 ```
